@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 /**
  * CodeIgniter
@@ -36,6 +37,24 @@
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+=======
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP 5.1.6 or newer
+ *
+ * @package		CodeIgniter
+ * @author		ExpressionEngine Dev Team
+ * @copyright	Copyright (c) 2008 - 2011, EllisLab, Inc.
+ * @license		http://codeigniter.com/user_guide/license.html
+ * @link		http://codeigniter.com
+ * @since		Version 1.0
+ * @filesource
+ */
+
+// ------------------------------------------------------------------------
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /**
  * CodeIgniter Number Helpers
@@ -43,12 +62,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @package		CodeIgniter
  * @subpackage	Helpers
  * @category	Helpers
+<<<<<<< HEAD
  * @author		EllisLab Dev Team
+=======
+ * @author		ExpressionEngine Dev Team
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
  * @link		http://codeigniter.com/user_guide/helpers/number_helper.html
  */
 
 // ------------------------------------------------------------------------
 
+<<<<<<< HEAD
 if ( ! function_exists('byte_format'))
 {
 	/**
@@ -58,6 +82,17 @@ if ( ! function_exists('byte_format'))
 	 * @param	int
 	 * @return	string
 	 */
+=======
+/**
+ * Formats a numbers as bytes, based on size, and adds the appropriate suffix
+ *
+ * @access	public
+ * @param	mixed	// will be cast as int
+ * @return	string
+ */
+if ( ! function_exists('byte_format'))
+{
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 	function byte_format($num, $precision = 1)
 	{
 		$CI =& get_instance();
@@ -92,3 +127,10 @@ if ( ! function_exists('byte_format'))
 		return number_format($num, $precision).' '.$unit;
 	}
 }
+<<<<<<< HEAD
+=======
+
+
+/* End of file number_helper.php */
+/* Location: ./system/helpers/number_helper.php */
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac

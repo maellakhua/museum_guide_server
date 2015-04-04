@@ -5,12 +5,21 @@
  *
  * A fully RESTful server implementation for CodeIgniter using one library, one config file and one controller.
  *
+<<<<<<< HEAD
  * @package         CodeIgniter
  * @subpackage      Libraries
  * @category      Libraries
  * @author          Phil Sturgeon, Chris Kacerguis
  * @license         MIT
  * @link      https://github.com/chriskacerguis/codeigniter-restserver
+=======
+ * @package        	CodeIgniter
+ * @subpackage    	Libraries
+ * @category    	Libraries
+ * @author        	Phil Sturgeon, Chris Kacerguis
+ * @license         MIT
+ * @link			https://github.com/chriskacerguis/codeigniter-restserver
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
  * @version         3.0.0-pre
  */
 abstract class REST_Controller extends CI_Controller
@@ -286,7 +295,11 @@ abstract class REST_Controller extends CI_Controller
         $this->auth_override    = $this->_auth_override_check();
 
         // Checking for keys? GET TO WorK!
+<<<<<<< HEAD
         // Skip keys test for $config['auth_override_class_method']['class'['method'] = 'none'
+=======
+	      // Skip keys test for $config['auth_override_class_method']['class'['method'] = 'none'
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
         if (config_item('rest_enable_keys') and $this->auth_override !== TRUE) {
             $this->_allow = $this->_detect_api_key();
         }
@@ -520,8 +533,13 @@ abstract class REST_Controller extends CI_Controller
      */
     protected function _detect_ssl()
     {
+<<<<<<< HEAD
           // $_SERVER['HTTPS'] (http://php.net/manual/en/reserved.variables.server.php)
           // Set to a non-empty value if the script was queried through the HTTPS protocol
+=======
+    	    // $_SERVER['HTTPS'] (http://php.net/manual/en/reserved.variables.server.php)
+    	    // Set to a non-empty value if the script was queried through the HTTPS protocol
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
             return (isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']));
     }
 

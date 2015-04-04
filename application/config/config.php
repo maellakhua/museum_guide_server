@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+=======
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /*
 |--------------------------------------------------------------------------
@@ -11,6 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 |	http://example.com/
 |
+<<<<<<< HEAD
 | If this is not set then CodeIgniter will try guess the protocol, domain
 | and path to your installation. However, you should always configure this
 | explicitly and never rely on auto-guessing, especially in production
@@ -18,6 +23,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = '';
+=======
+| If this is not set then CodeIgniter will guess the protocol, domain and
+| path to your installation.
+|
+*/
+$config['base_url']	= 'http://localhost/museum_app/';
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +49,7 @@ $config['index_page'] = 'index.php';
 |--------------------------------------------------------------------------
 |
 | This item determines which server global should be used to retrieve the
+<<<<<<< HEAD
 | URI string.  The default setting of 'REQUEST_URI' works for most servers.
 | If your links do not seem to work, try one of the other delicious flavors:
 |
@@ -47,6 +60,19 @@ $config['index_page'] = 'index.php';
 | WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
 */
 $config['uri_protocol']	= 'REQUEST_URI';
+=======
+| URI string.  The default setting of 'AUTO' works for most servers.
+| If your links do not seem to work, try one of the other delicious flavors:
+|
+| 'AUTO'			Default - auto detects
+| 'PATH_INFO'		Uses the PATH_INFO
+| 'QUERY_STRING'	Uses the QUERY_STRING
+| 'REQUEST_URI'		Uses the REQUEST_URI
+| 'ORIG_PATH_INFO'	Uses the ORIG_PATH_INFO
+|
+*/
+$config['uri_protocol']	= 'AUTO';
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /*
 |--------------------------------------------------------------------------
@@ -81,8 +107,11 @@ $config['language']	= 'english';
 | This determines which character set is used by default in various methods
 | that require a character set to be provided.
 |
+<<<<<<< HEAD
 | See http://php.net/htmlspecialchars for a list of supported charsets.
 |
+=======
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 */
 $config['charset'] = 'UTF-8';
 
@@ -97,6 +126,10 @@ $config['charset'] = 'UTF-8';
 */
 $config['enable_hooks'] = FALSE;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 /*
 |--------------------------------------------------------------------------
 | Class Extension Prefix
@@ -111,6 +144,7 @@ $config['enable_hooks'] = FALSE;
 */
 $config['subclass_prefix'] = 'MY_';
 
+<<<<<<< HEAD
 /*
 |--------------------------------------------------------------------------
 | Composer auto-loading
@@ -132,24 +166,35 @@ $config['subclass_prefix'] = 'MY_';
 |	autoloading (application/config/autoload.php)
 */
 $config['composer_autoload'] = FALSE;
+=======
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /*
 |--------------------------------------------------------------------------
 | Allowed URL Characters
 |--------------------------------------------------------------------------
 |
+<<<<<<< HEAD
 | This lets you specify which characters are permitted within your URLs.
 | When someone tries to submit a URL with disallowed characters they will
 | get a warning message.
+=======
+| This lets you specify with a regular expression which characters are permitted
+| within your URLs.  When someone tries to submit a URL with disallowed
+| characters they will get a warning message.
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 |
 | As a security measure you are STRONGLY encouraged to restrict URLs to
 | as few characters as possible.  By default only these are allowed: a-z 0-9~%.:_-
 |
 | Leave blank to allow all characters -- but only if you are insane.
 |
+<<<<<<< HEAD
 | The configured value is actually a regular expression character group
 | and it will be executed as: ! preg_match('/^[<permitted_uri_chars>]+$/i
 |
+=======
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
@@ -181,11 +226,19 @@ $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 | use segment based URLs.
 |
 */
+<<<<<<< HEAD
 $config['allow_get_array'] = TRUE;
 $config['enable_query_strings'] = FALSE;
 $config['controller_trigger'] = 'c';
 $config['function_trigger'] = 'm';
 $config['directory_trigger'] = 'd';
+=======
+$config['allow_get_array']		= TRUE;
+$config['enable_query_strings'] = FALSE;
+$config['controller_trigger']	= 'c';
+$config['function_trigger']		= 'm';
+$config['directory_trigger']	= 'd'; // experimental not currently in use
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /*
 |--------------------------------------------------------------------------
@@ -203,10 +256,13 @@ $config['directory_trigger'] = 'd';
 |	3 = Informational Messages
 |	4 = All Messages
 |
+<<<<<<< HEAD
 | You can also pass an array with threshold levels to show individual error types
 |
 | 	array(2) = Debug Messages, without Error Messages
 |
+=======
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 | For a live site you'll usually only enable Errors (1) to be logged otherwise
 | your log files will fill up very fast.
 |
@@ -219,13 +275,18 @@ $config['log_threshold'] = 4;
 |--------------------------------------------------------------------------
 |
 | Leave this BLANK unless you would like to set something other than the default
+<<<<<<< HEAD
 | application/logs/ directory. Use a full server path with trailing slash.
+=======
+| application/logs/ folder. Use a full server path with trailing slash.
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 |
 */
 $config['log_path'] = '';
 
 /*
 |--------------------------------------------------------------------------
+<<<<<<< HEAD
 | Log File Extension
 |--------------------------------------------------------------------------
 |
@@ -252,6 +313,8 @@ $config['log_file_permissions'] = 0644;
 
 /*
 |--------------------------------------------------------------------------
+=======
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 | Date Format for Logs
 |--------------------------------------------------------------------------
 |
@@ -263,6 +326,7 @@ $config['log_date_format'] = 'Y-m-d H:i:s';
 
 /*
 |--------------------------------------------------------------------------
+<<<<<<< HEAD
 | Error Views Directory Path
 |--------------------------------------------------------------------------
 |
@@ -274,17 +338,24 @@ $config['error_views_path'] = '';
 
 /*
 |--------------------------------------------------------------------------
+=======
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 | Cache Directory Path
 |--------------------------------------------------------------------------
 |
 | Leave this BLANK unless you would like to set something other than the default
+<<<<<<< HEAD
 | application/cache/ directory.  Use a full server path with trailing slash.
+=======
+| system/cache/ folder.  Use a full server path with trailing slash.
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 |
 */
 $config['cache_path'] = '';
 
 /*
 |--------------------------------------------------------------------------
+<<<<<<< HEAD
 | Cache Include Query String
 |--------------------------------------------------------------------------
 |
@@ -303,6 +374,13 @@ $config['cache_query_string'] = FALSE;
 | See the user guide for more info.
 |
 | http://codeigniter.com/user_guide/libraries/encryption.html
+=======
+| Encryption Key
+|--------------------------------------------------------------------------
+|
+| If you use the Encryption class or the Session class you
+| MUST set an encryption key.  See the user guide for info.
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 |
 */
 $config['encryption_key'] = '';
@@ -312,6 +390,7 @@ $config['encryption_key'] = '';
 | Session Variables
 |--------------------------------------------------------------------------
 |
+<<<<<<< HEAD
 | 'sess_driver'
 |
 |	The storage driver to use: files, database, redis, memcached
@@ -362,12 +441,37 @@ $config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
+=======
+| 'sess_cookie_name'		= the name you want for the cookie
+| 'sess_expiration'			= the number of SECONDS you want the session to last.
+|   by default sessions last 7200 seconds (two hours).  Set to zero for no expiration.
+| 'sess_expire_on_close'	= Whether to cause the session to expire automatically
+|   when the browser window is closed
+| 'sess_encrypt_cookie'		= Whether to encrypt the cookie
+| 'sess_use_database'		= Whether to save the session data to a database
+| 'sess_table_name'			= The name of the session database table
+| 'sess_match_ip'			= Whether to match the user's IP address when reading the session data
+| 'sess_match_useragent'	= Whether to match the User Agent when reading the session data
+| 'sess_time_to_update'		= how many seconds between CI refreshing Session Information
+|
+*/
+$config['sess_cookie_name']		= 'ci_session';
+$config['sess_expiration']		= 7200;
+$config['sess_expire_on_close']	= FALSE;
+$config['sess_encrypt_cookie']	= FALSE;
+$config['sess_use_database']	= FALSE;
+$config['sess_table_name']		= 'ci_sessions';
+$config['sess_match_ip']		= FALSE;
+$config['sess_match_useragent']	= TRUE;
+$config['sess_time_to_update']	= 300;
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /*
 |--------------------------------------------------------------------------
 | Cookie Related Variables
 |--------------------------------------------------------------------------
 |
+<<<<<<< HEAD
 | 'cookie_prefix'   = Set a cookie name prefix if you need to avoid collisions
 | 'cookie_domain'   = Set to .your-domain.com for site-wide cookies
 | 'cookie_path'     = Typically will be a forward slash
@@ -397,6 +501,18 @@ $config['cookie_httponly'] 	= FALSE;
 |
 */
 $config['standardize_newlines'] = FALSE;
+=======
+| 'cookie_prefix' = Set a prefix if you need to avoid collisions
+| 'cookie_domain' = Set to .your-domain.com for site-wide cookies
+| 'cookie_path'   =  Typically will be a forward slash
+| 'cookie_secure' =  Cookies will only be set if a secure HTTPS connection exists.
+|
+*/
+$config['cookie_prefix']	= "";
+$config['cookie_domain']	= "";
+$config['cookie_path']		= "/";
+$config['cookie_secure']	= FALSE;
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /*
 |--------------------------------------------------------------------------
@@ -406,9 +522,12 @@ $config['standardize_newlines'] = FALSE;
 | Determines whether the XSS filter is always active when GET, POST or
 | COOKIE data is encountered
 |
+<<<<<<< HEAD
 | WARNING: This feature is DEPRECATED and currently available only
 |          for backwards compatibility purposes!
 |
+=======
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 */
 $config['global_xss_filtering'] = FALSE;
 
@@ -423,15 +542,21 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_token_name' = The token name
 | 'csrf_cookie_name' = The cookie name
 | 'csrf_expire' = The number in seconds the token should expire.
+<<<<<<< HEAD
 | 'csrf_regenerate' = Regenerate token on every submission
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
+=======
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 */
 $config['csrf_protection'] = FALSE;
 $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
+<<<<<<< HEAD
 $config['csrf_regenerate'] = TRUE;
 $config['csrf_exclude_uris'] = array();
+=======
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /*
 |--------------------------------------------------------------------------
@@ -443,9 +568,12 @@ $config['csrf_exclude_uris'] = array();
 | Even if it does, however, not all browsers support compression
 | so enable only if you are reasonably sure your visitors can handle it.
 |
+<<<<<<< HEAD
 | Only used if zlib.output_compression is turned off in your php.ini.
 | Please do not use it together with httpd-level output compression.
 |
+=======
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 | VERY IMPORTANT:  If you are getting a blank page when compression is enabled it
 | means you are prematurely outputting something to your browser. It could
 | even be a line of whitespace at the end of one of your scripts.  For
@@ -460,14 +588,25 @@ $config['compress_output'] = FALSE;
 | Master Time Reference
 |--------------------------------------------------------------------------
 |
+<<<<<<< HEAD
 | Options are 'local' or any PHP supported timezone. This preference tells
 | the system whether to use your server's local time as the master 'now'
 | reference, or convert it to the configured one timezone. See the 'date
 | helper' page of the user guide for information regarding date handling.
+=======
+| Options are 'local' or 'gmt'.  This pref tells the system whether to use
+| your server's local time as the master 'now' reference, or convert it to
+| GMT.  See the 'date helper' page of the user guide for information
+| regarding date handling.
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 |
 */
 $config['time_reference'] = 'local';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 /*
 |--------------------------------------------------------------------------
 | Rewrite PHP Short Tags
@@ -486,6 +625,7 @@ $config['rewrite_short_tags'] = FALSE;
 | Reverse Proxy IPs
 |--------------------------------------------------------------------------
 |
+<<<<<<< HEAD
 | If your server is behind a reverse proxy, you must whitelist the proxy
 | IP addresses from which CodeIgniter should trust headers such as
 | HTTP_X_FORWARDED_FOR and HTTP_CLIENT_IP in order to properly identify
@@ -498,3 +638,16 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+=======
+| If your server is behind a reverse proxy, you must whitelist the proxy IP
+| addresses from which CodeIgniter should trust the HTTP_X_FORWARDED_FOR
+| header in order to properly identify the visitor's IP address.
+| Comma-delimited, e.g. '10.0.1.200,10.0.1.201'
+|
+*/
+$config['proxy_ips'] = '';
+
+
+/* End of file config.php */
+/* Location: ./application/config/config.php */
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac

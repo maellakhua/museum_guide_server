@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 /**
  * CodeIgniter
@@ -36,6 +37,24 @@
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+=======
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP 5.1.6 or newer
+ *
+ * @package		CodeIgniter
+ * @author		ExpressionEngine Dev Team
+ * @copyright	Copyright (c) 2008 - 2011, EllisLab, Inc.
+ * @license		http://codeigniter.com/user_guide/license.html
+ * @link		http://codeigniter.com
+ * @since		Version 1.0
+ * @filesource
+ */
+
+// ------------------------------------------------------------------------
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /**
  * CodeIgniter Language Helpers
@@ -43,12 +62,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @package		CodeIgniter
  * @subpackage	Helpers
  * @category	Helpers
+<<<<<<< HEAD
  * @author		EllisLab Dev Team
+=======
+ * @author		ExpressionEngine Dev Team
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
  * @link		http://codeigniter.com/user_guide/helpers/language_helper.html
  */
 
 // ------------------------------------------------------------------------
 
+<<<<<<< HEAD
 if ( ! function_exists('lang'))
 {
 	/**
@@ -68,8 +92,37 @@ if ( ! function_exists('lang'))
 		if ($for !== '')
 		{
 			$line = '<label for="'.$for.'"'._stringify_attributes($attributes).'>'.$line.'</label>';
+=======
+/**
+ * Lang
+ *
+ * Fetches a language variable and optionally outputs a form label
+ *
+ * @access	public
+ * @param	string	the language line
+ * @param	string	the id of the form element
+ * @return	string
+ */
+if ( ! function_exists('lang'))
+{
+	function lang($line, $id = '')
+	{
+		$CI =& get_instance();
+		$line = $CI->lang->line($line);
+
+		if ($id != '')
+		{
+			$line = '<label for="'.$id.'">'.$line."</label>";
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 		}
 
 		return $line;
 	}
 }
+<<<<<<< HEAD
+=======
+
+// ------------------------------------------------------------------------
+/* End of file language_helper.php */
+/* Location: ./system/helpers/language_helper.php */
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac

@@ -1,12 +1,20 @@
+<<<<<<< HEAD
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+=======
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 /*
 | -------------------------------------------------------------------
 | SMILEYS
 | -------------------------------------------------------------------
 | This file contains an array of smileys for use with the emoticon helper.
+<<<<<<< HEAD
 | Individual images can be used to replace multiple smileys.  For example:
+=======
+| Individual images can be used to replace multiple simileys.  For example:
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 | :-) and :) use the same image replacement.
 |
 | Please see user guide for more info:
@@ -59,7 +67,17 @@ $smileys = array(
 	':coolcheese:'	=>	array('shade_cheese.gif',	'19',	'19',	'cool cheese'),
 	':vampire:'		=>	array('vampire.gif',		'19',	'19',	'vampire'),
 	':snake:'		=>	array('snake.gif',			'19',	'19',	'snake'),
+<<<<<<< HEAD
 	':exclaim:'		=>	array('exclaim.gif',		'19',	'19',	'exclaim'),
 	':question:'	=>	array('question.gif',		'19',	'19',	'question')
 
 );
+=======
+	':exclaim:'		=>	array('exclaim.gif',		'19',	'19',	'excaim'),
+	':question:'	=>	array('question.gif',		'19',	'19',	'question') // no comma after last item
+
+		);
+
+/* End of file smileys.php */
+/* Location: ./application/config/smileys.php */
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac

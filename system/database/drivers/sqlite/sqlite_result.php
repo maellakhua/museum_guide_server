@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 /**
  * CodeIgniter
@@ -36,6 +37,24 @@
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+=======
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP 5.1.6 or newer
+ *
+ * @package		CodeIgniter
+ * @author		ExpressionEngine Dev Team
+ * @copyright	Copyright (c) 2008 - 2011, EllisLab, Inc.
+ * @license		http://codeigniter.com/user_guide/license.html
+ * @link		http://codeigniter.com
+ * @since		Version 1.0
+ * @filesource
+ */
+
+// ------------------------------------------------------------------------
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /**
  * SQLite Result Class
@@ -43,7 +62,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * This class extends the parent result class: CI_DB_result
  *
  * @category	Database
+<<<<<<< HEAD
  * @author		EllisLab Dev Team
+=======
+ * @author		ExpressionEngine Dev Team
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
  * @link		http://codeigniter.com/user_guide/database/
  */
 class CI_DB_sqlite_result extends CI_DB_result {
@@ -51,6 +74,7 @@ class CI_DB_sqlite_result extends CI_DB_result {
 	/**
 	 * Number of rows in the result set
 	 *
+<<<<<<< HEAD
 	 * @return	int
 	 */
 	public function num_rows()
@@ -58,6 +82,14 @@ class CI_DB_sqlite_result extends CI_DB_result {
 		return is_int($this->num_rows)
 			? $this->num_rows
 			: $this->num_rows = @sqlite_num_rows($this->result_id);
+=======
+	 * @access	public
+	 * @return	integer
+	 */
+	function num_rows()
+	{
+		return @sqlite_num_rows($this->result_id);
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 	}
 
 	// --------------------------------------------------------------------
@@ -65,9 +97,16 @@ class CI_DB_sqlite_result extends CI_DB_result {
 	/**
 	 * Number of fields in the result set
 	 *
+<<<<<<< HEAD
 	 * @return	int
 	 */
 	public function num_fields()
+=======
+	 * @access	public
+	 * @return	integer
+	 */
+	function num_fields()
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 	{
 		return @sqlite_num_fields($this->result_id);
 	}
@@ -79,6 +118,7 @@ class CI_DB_sqlite_result extends CI_DB_result {
 	 *
 	 * Generates an array of column names
 	 *
+<<<<<<< HEAD
 	 * @return	array
 	 */
 	public function list_fields()
@@ -87,6 +127,17 @@ class CI_DB_sqlite_result extends CI_DB_result {
 		for ($i = 0, $c = $this->num_fields(); $i < $c; $i++)
 		{
 			$field_names[$i] = sqlite_field_name($this->result_id, $i);
+=======
+	 * @access	public
+	 * @return	array
+	 */
+	function list_fields()
+	{
+		$field_names = array();
+		for ($i = 0; $i < $this->num_fields(); $i++)
+		{
+			$field_names[] = sqlite_field_name($this->result_id, $i);
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 		}
 
 		return $field_names;
@@ -99,6 +150,7 @@ class CI_DB_sqlite_result extends CI_DB_result {
 	 *
 	 * Generates an array of objects containing field meta-data
 	 *
+<<<<<<< HEAD
 	 * @return	array
 	 */
 	public function field_data()
@@ -110,6 +162,24 @@ class CI_DB_sqlite_result extends CI_DB_result {
 			$retval[$i]->name		= sqlite_field_name($this->result_id, $i);
 			$retval[$i]->type		= NULL;
 			$retval[$i]->max_length		= NULL;
+=======
+	 * @access	public
+	 * @return	array
+	 */
+	function field_data()
+	{
+		$retval = array();
+		for ($i = 0; $i < $this->num_fields(); $i++)
+		{
+			$F				= new stdClass();
+			$F->name		= sqlite_field_name($this->result_id, $i);
+			$F->type		= 'varchar';
+			$F->max_length	= 0;
+			$F->primary_key = 0;
+			$F->default		= '';
+
+			$retval[] = $F;
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 		}
 
 		return $retval;
@@ -118,6 +188,7 @@ class CI_DB_sqlite_result extends CI_DB_result {
 	// --------------------------------------------------------------------
 
 	/**
+<<<<<<< HEAD
 	 * Data Seek
 	 *
 	 * Moves the internal pointer to the desired offset. We call
@@ -128,6 +199,30 @@ class CI_DB_sqlite_result extends CI_DB_result {
 	 * @return	bool
 	 */
 	public function data_seek($n = 0)
+=======
+	 * Free the result
+	 *
+	 * @return	null
+	 */
+	function free_result()
+	{
+		// Not implemented in SQLite
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Data Seek
+	 *
+	 * Moves the internal pointer to the desired offset.  We call
+	 * this internally before fetching results to make sure the
+	 * result set starts at zero
+	 *
+	 * @access	private
+	 * @return	array
+	 */
+	function _data_seek($n = 0)
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 	{
 		return sqlite_seek($this->result_id, $n);
 	}
@@ -139,9 +234,16 @@ class CI_DB_sqlite_result extends CI_DB_result {
 	 *
 	 * Returns the result set as an array
 	 *
+<<<<<<< HEAD
 	 * @return	array
 	 */
 	protected function _fetch_assoc()
+=======
+	 * @access	private
+	 * @return	array
+	 */
+	function _fetch_assoc()
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 	{
 		return sqlite_fetch_array($this->result_id);
 	}
@@ -153,6 +255,7 @@ class CI_DB_sqlite_result extends CI_DB_result {
 	 *
 	 * Returns the result set as an object
 	 *
+<<<<<<< HEAD
 	 * @param	string	$class_name
 	 * @return	object
 	 */
@@ -162,3 +265,32 @@ class CI_DB_sqlite_result extends CI_DB_result {
 	}
 
 }
+=======
+	 * @access	private
+	 * @return	object
+	 */
+	function _fetch_object()
+	{
+		if (function_exists('sqlite_fetch_object'))
+		{
+			return sqlite_fetch_object($this->result_id);
+		}
+		else
+		{
+			$arr = sqlite_fetch_array($this->result_id, SQLITE_ASSOC);
+			if (is_array($arr))
+			{
+				$obj = (object) $arr;
+				return $obj;
+			} else {
+				return NULL;
+			}
+		}
+	}
+
+}
+
+
+/* End of file sqlite_result.php */
+/* Location: ./system/database/drivers/sqlite/sqlite_result.php */
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac

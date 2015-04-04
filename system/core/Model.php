@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 /**
  * CodeIgniter
@@ -39,16 +40,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * Model Class
+=======
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP 5.1.6 or newer
+ *
+ * @package		CodeIgniter
+ * @author		ExpressionEngine Dev Team
+ * @copyright	Copyright (c) 2008 - 2011, EllisLab, Inc.
+ * @license		http://codeigniter.com/user_guide/license.html
+ * @link		http://codeigniter.com
+ * @since		Version 1.0
+ * @filesource
+ */
+
+// ------------------------------------------------------------------------
+
+/**
+ * CodeIgniter Model Class
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
  *
  * @package		CodeIgniter
  * @subpackage	Libraries
  * @category	Libraries
+<<<<<<< HEAD
  * @author		EllisLab Dev Team
+=======
+ * @author		ExpressionEngine Dev Team
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
  * @link		http://codeigniter.com/user_guide/libraries/config.html
  */
 class CI_Model {
 
 	/**
+<<<<<<< HEAD
 	 * Class constructor
 	 *
 	 * @return	void
@@ -62,10 +89,24 @@ class CI_Model {
 
 	/**
 	 * __get magic
+=======
+	 * Constructor
+	 *
+	 * @access public
+	 */
+	function __construct()
+	{
+		log_message('debug', "Model Class Initialized");
+	}
+
+	/**
+	 * __get
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 	 *
 	 * Allows models to access CI's loaded classes using the same
 	 * syntax as controllers.
 	 *
+<<<<<<< HEAD
 	 * @param	string	$key
 	 */
 	public function __get($key)
@@ -78,3 +119,18 @@ class CI_Model {
 	}
 
 }
+=======
+	 * @param	string
+	 * @access private
+	 */
+	function __get($key)
+	{
+		$CI =& get_instance();
+		return $CI->$key;
+	}
+}
+// END Model Class
+
+/* End of file Model.php */
+/* Location: ./system/core/Model.php */
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac

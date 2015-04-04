@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 /**
  * CodeIgniter
@@ -36,6 +37,24 @@
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+=======
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP 5.1.6 or newer
+ *
+ * @package		CodeIgniter
+ * @author		ExpressionEngine Dev Team
+ * @copyright	Copyright (c) 2008 - 2011, EllisLab, Inc.
+ * @license		http://codeigniter.com/user_guide/license.html
+ * @link		http://codeigniter.com
+ * @since		Version 1.0
+ * @filesource
+ */
+
+// ------------------------------------------------------------------------
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /**
  * CodeIgniter Cookie Helpers
@@ -43,12 +62,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @package		CodeIgniter
  * @subpackage	Helpers
  * @category	Helpers
+<<<<<<< HEAD
  * @author		EllisLab Dev Team
+=======
+ * @author		ExpressionEngine Dev Team
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
  * @link		http://codeigniter.com/user_guide/helpers/cookie_helper.html
  */
 
 // ------------------------------------------------------------------------
 
+<<<<<<< HEAD
 if ( ! function_exists('set_cookie'))
 {
 	/**
@@ -71,11 +95,36 @@ if ( ! function_exists('set_cookie'))
 	{
 		// Set the config file options
 		get_instance()->input->set_cookie($name, $value, $expire, $domain, $path, $prefix, $secure, $httponly);
+=======
+/**
+ * Set cookie
+ *
+ * Accepts six parameter, or you can submit an associative
+ * array in the first parameter containing all the values.
+ *
+ * @access	public
+ * @param	mixed
+ * @param	string	the value of the cookie
+ * @param	string	the number of seconds until expiration
+ * @param	string	the cookie domain.  Usually:  .yourdomain.com
+ * @param	string	the cookie path
+ * @param	string	the cookie prefix
+ * @return	void
+ */
+if ( ! function_exists('set_cookie'))
+{
+	function set_cookie($name = '', $value = '', $expire = '', $domain = '', $path = '/', $prefix = '', $secure = FALSE)
+	{
+		// Set the config file options
+		$CI =& get_instance();
+		$CI->input->set_cookie($name, $value, $expire, $domain, $path, $prefix, $secure);
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 	}
 }
 
 // --------------------------------------------------------------------
 
+<<<<<<< HEAD
 if ( ! function_exists('get_cookie'))
 {
 	/**
@@ -90,11 +139,36 @@ if ( ! function_exists('get_cookie'))
 		is_bool($xss_clean) OR $xss_clean = (config_item('global_xss_filtering') === TRUE);
 		$prefix = isset($_COOKIE[$index]) ? '' : config_item('cookie_prefix');
 		return get_instance()->input->cookie($prefix.$index, $xss_clean);
+=======
+/**
+ * Fetch an item from the COOKIE array
+ *
+ * @access	public
+ * @param	string
+ * @param	bool
+ * @return	mixed
+ */
+if ( ! function_exists('get_cookie'))
+{
+	function get_cookie($index = '', $xss_clean = FALSE)
+	{
+		$CI =& get_instance();
+
+		$prefix = '';
+
+		if ( ! isset($_COOKIE[$index]) && config_item('cookie_prefix') != '')
+		{
+			$prefix = config_item('cookie_prefix');
+		}
+
+		return $CI->input->cookie($prefix.$index, $xss_clean);
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 	}
 }
 
 // --------------------------------------------------------------------
 
+<<<<<<< HEAD
 if ( ! function_exists('delete_cookie'))
 {
 	/**
@@ -107,7 +181,28 @@ if ( ! function_exists('delete_cookie'))
 	 * @return	void
 	 */
 	function delete_cookie($name, $domain = '', $path = '/', $prefix = '')
+=======
+/**
+ * Delete a COOKIE
+ *
+ * @param	mixed
+ * @param	string	the cookie domain.  Usually:  .yourdomain.com
+ * @param	string	the cookie path
+ * @param	string	the cookie prefix
+ * @return	void
+ */
+if ( ! function_exists('delete_cookie'))
+{
+	function delete_cookie($name = '', $domain = '', $path = '/', $prefix = '')
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 	{
 		set_cookie($name, '', '', $domain, $path, $prefix);
 	}
 }
+<<<<<<< HEAD
+=======
+
+
+/* End of file cookie_helper.php */
+/* Location: ./system/helpers/cookie_helper.php */
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 /**
  * CodeIgniter
@@ -39,6 +40,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * Application Controller Class
+=======
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP 5.1.6 or newer
+ *
+ * @package		CodeIgniter
+ * @author		ExpressionEngine Dev Team
+ * @copyright	Copyright (c) 2008 - 2011, EllisLab, Inc.
+ * @license		http://codeigniter.com/user_guide/license.html
+ * @link		http://codeigniter.com
+ * @since		Version 1.0
+ * @filesource
+ */
+
+// ------------------------------------------------------------------------
+
+/**
+ * CodeIgniter Application Controller Class
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
  *
  * This class object is the super class that every library in
  * CodeIgniter will be assigned to.
@@ -46,11 +68,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @package		CodeIgniter
  * @subpackage	Libraries
  * @category	Libraries
+<<<<<<< HEAD
  * @author		EllisLab Dev Team
+=======
+ * @author		ExpressionEngine Dev Team
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
  * @link		http://codeigniter.com/user_guide/general/controllers.html
  */
 class CI_Controller {
 
+<<<<<<< HEAD
 	/**
 	 * Reference to the CI singleton
 	 *
@@ -62,11 +89,21 @@ class CI_Controller {
 	 * Class constructor
 	 *
 	 * @return	void
+=======
+	private static $instance;
+
+	/**
+	 * Constructor
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 	 */
 	public function __construct()
 	{
 		self::$instance =& $this;
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 		// Assign all the class objects that were instantiated by the
 		// bootstrap file (CodeIgniter.php) to local class variables
 		// so that CI can run as one big super object.
@@ -76,6 +113,7 @@ class CI_Controller {
 		}
 
 		$this->load =& load_class('Loader', 'core');
+<<<<<<< HEAD
 		$this->load->initialize();
 		log_message('info', 'Controller Class Initialized');
 	}
@@ -88,9 +126,25 @@ class CI_Controller {
 	 * @static
 	 * @return	object
 	 */
+=======
+
+		$this->load->initialize();
+		
+		log_message('debug', "Controller Class Initialized");
+	}
+
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 	public static function &get_instance()
 	{
 		return self::$instance;
 	}
+<<<<<<< HEAD
 
 }
+=======
+}
+// END Controller class
+
+/* End of file Controller.php */
+/* Location: ./system/core/Controller.php */
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac

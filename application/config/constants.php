@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+=======
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +21,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 define('FILE_READ_MODE', 0644);
 define('FILE_WRITE_MODE', 0666);
 define('DIR_READ_MODE', 0755);
+<<<<<<< HEAD
 define('DIR_WRITE_MODE', 0755);
+=======
+define('DIR_WRITE_MODE', 0777);
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +36,7 @@ define('DIR_WRITE_MODE', 0755);
 |
 */
 
+<<<<<<< HEAD
 define('FOPEN_READ', 'rb');
 define('FOPEN_READ_WRITE', 'r+b');
 define('FOPEN_WRITE_CREATE_DESTRUCTIVE', 'wb'); // truncates existing file data, use with care
@@ -84,3 +93,17 @@ define('EXIT_USER_INPUT', 7); // invalid user input
 define('EXIT_DATABASE', 8); // database error
 define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+=======
+define('FOPEN_READ',							'rb');
+define('FOPEN_READ_WRITE',						'r+b');
+define('FOPEN_WRITE_CREATE_DESTRUCTIVE',		'wb'); // truncates existing file data, use with care
+define('FOPEN_READ_WRITE_CREATE_DESTRUCTIVE',	'w+b'); // truncates existing file data, use with care
+define('FOPEN_WRITE_CREATE',					'ab');
+define('FOPEN_READ_WRITE_CREATE',				'a+b');
+define('FOPEN_WRITE_CREATE_STRICT',				'xb');
+define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
+
+
+/* End of file constants.php */
+/* Location: ./application/config/constants.php */
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac

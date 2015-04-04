@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+=======
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 /*
 | -------------------------------------------------------------------------
 | URI ROUTING
@@ -25,7 +29,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | RESERVED ROUTES
 | -------------------------------------------------------------------------
 |
+<<<<<<< HEAD
 | There are three reserved routes:
+=======
+| There area two reserved routes:
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 |
 |	$route['default_controller'] = 'welcome';
 |
@@ -35,6 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 |	$route['404_override'] = 'errors/page_missing';
 |
+<<<<<<< HEAD
 | This route will tell the Router which controller/method to use if those
 | provided in the URL cannot be matched to a valid route.
 |
@@ -52,3 +61,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+=======
+| This route will tell the Router what URI segments to use if those provided
+| in the URL cannot be matched to a valid route.
+|
+*/
+
+$route['default_controller'] = "welcome";
+$route['404_override'] = '';
+
+
+/* End of file routes.php */
+/* Location: ./application/config/routes.php */
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac

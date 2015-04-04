@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 /**
  * CodeIgniter
  *
@@ -35,6 +36,8 @@
  * @since	Version 1.0.0
  * @filesource
  */
+=======
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /*
  *---------------------------------------------------------------
@@ -52,9 +55,15 @@
  *     production
  *
  * NOTE: If you change these, also change the error_reporting() code below
+<<<<<<< HEAD
  */
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
+=======
+ *
+ */
+	define('ENVIRONMENT', 'development');
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
@@ -63,6 +72,7 @@
  * Different environments will require different levels of error reporting.
  * By default development will show errors but testing and live will hide them.
  */
+<<<<<<< HEAD
 switch (ENVIRONMENT)
 {
 	case 'development':
@@ -87,6 +97,25 @@ switch (ENVIRONMENT)
 		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
 		echo 'The application environment is not set correctly.';
 		exit(1); // EXIT_ERROR
+=======
+
+if (defined('ENVIRONMENT'))
+{
+	switch (ENVIRONMENT)
+	{
+		case 'development':
+			error_reporting(E_ALL);
+		break;
+	
+		case 'testing':
+		case 'production':
+			error_reporting(0);
+		break;
+
+		default:
+			exit('The application environment is not set correctly.');
+	}
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 }
 
 /*
@@ -95,8 +124,14 @@ switch (ENVIRONMENT)
  *---------------------------------------------------------------
  *
  * This variable must contain the name of your "system" folder.
+<<<<<<< HEAD
  * Include the path if the folder is not in the same directory
  * as this file.
+=======
+ * Include the path if the folder is not in the same  directory
+ * as this file.
+ *
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
  */
 	$system_path = 'system';
 
@@ -106,12 +141,18 @@ switch (ENVIRONMENT)
  *---------------------------------------------------------------
  *
  * If you want this front controller to use a different "application"
+<<<<<<< HEAD
  * folder than the default one you can set its name here. The folder
  * can also be renamed or relocated anywhere on your server. If
+=======
+ * folder then the default one you can set its name here. The folder
+ * can also be renamed or relocated anywhere on your server.  If
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
  * you do, use a full server path. For more info please see the user guide:
  * http://codeigniter.com/user_guide/general/managing_apps.html
  *
  * NO TRAILING SLASH!
+<<<<<<< HEAD
  */
 	$application_folder = 'application';
 
@@ -130,6 +171,11 @@ switch (ENVIRONMENT)
  */
 	$view_folder = '';
 
+=======
+ *
+ */
+	$application_folder = 'application';
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /*
  * --------------------------------------------------------------------
@@ -138,23 +184,41 @@ switch (ENVIRONMENT)
  *
  * Normally you will set your default controller in the routes.php file.
  * You can, however, force a custom routing by hard-coding a
+<<<<<<< HEAD
  * specific controller class/function here. For most applications, you
+=======
+ * specific controller class/function here.  For most applications, you
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
  * WILL NOT set your routing here, but it's an option for those
  * special instances where you might want to override the standard
  * routing in a specific front controller that shares a common CI installation.
  *
+<<<<<<< HEAD
  * IMPORTANT: If you set the routing here, NO OTHER controller will be
  * callable. In essence, this preference limits your application to ONE
  * specific controller. Leave the function name blank if you need
  * to call functions dynamically via the URI.
  *
  * Un-comment the $routing array below to use this feature
+=======
+ * IMPORTANT:  If you set the routing here, NO OTHER controller will be
+ * callable. In essence, this preference limits your application to ONE
+ * specific controller.  Leave the function name blank if you need
+ * to call functions dynamically via the URI.
+ *
+ * Un-comment the $routing array below to use this feature
+ *
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
  */
 	// The directory name, relative to the "controllers" folder.  Leave blank
 	// if your controller is not in a sub-folder within the "controllers" folder
 	// $routing['directory'] = '';
 
+<<<<<<< HEAD
 	// The controller class file name.  Example:  mycontroller
+=======
+	// The controller class file name.  Example:  Mycontroller
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 	// $routing['controller'] = '';
 
 	// The controller function you wish to be called.
@@ -174,6 +238,10 @@ switch (ENVIRONMENT)
  * config values.
  *
  * Un-comment the $assign_to_config array below to use this feature
+<<<<<<< HEAD
+=======
+ *
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
  */
 	// $assign_to_config['name_of_config_item'] = 'value of config item';
 
@@ -195,6 +263,7 @@ switch (ENVIRONMENT)
 		chdir(dirname(__FILE__));
 	}
 
+<<<<<<< HEAD
 	if (($_temp = realpath($system_path)) !== FALSE)
 	{
 		$system_path = $_temp.'/';
@@ -211,6 +280,20 @@ switch (ENVIRONMENT)
 		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
 		echo 'Your system folder path does not appear to be set correctly. Please open the following file and correct this: '.pathinfo(__FILE__, PATHINFO_BASENAME);
 		exit(3); // EXIT_CONFIG
+=======
+	if (realpath($system_path) !== FALSE)
+	{
+		$system_path = realpath($system_path).'/';
+	}
+
+	// ensure there's a trailing slash
+	$system_path = rtrim($system_path, '/').'/';
+
+	// Is the system path correct?
+	if ( ! is_dir($system_path))
+	{
+		exit("Your system folder path does not appear to be set correctly. Please open the following file and correct this: ".pathinfo(__FILE__, PATHINFO_BASENAME));
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 	}
 
 /*
@@ -221,15 +304,28 @@ switch (ENVIRONMENT)
 	// The name of THIS file
 	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
 
+<<<<<<< HEAD
 	// Path to the system folder
 	define('BASEPATH', str_replace('\\', '/', $system_path));
 
 	// Path to the front controller (this file)
 	define('FCPATH', dirname(__FILE__).'/');
+=======
+	// The PHP file extension
+	// this global constant is deprecated.
+	define('EXT', '.php');
+
+	// Path to the system folder
+	define('BASEPATH', str_replace("\\", "/", $system_path));
+
+	// Path to the front controller (this file)
+	define('FCPATH', str_replace(SELF, '', __FILE__));
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 	// Name of the "system folder"
 	define('SYSDIR', trim(strrchr(trim(BASEPATH, '/'), '/'), '/'));
 
+<<<<<<< HEAD
 	// The path to the "application" folder
 	if (is_dir($application_folder))
 	{
@@ -282,11 +378,38 @@ switch (ENVIRONMENT)
 
 	define('VIEWPATH', $view_folder);
 
+=======
+
+	// The path to the "application" folder
+	if (is_dir($application_folder))
+	{
+		define('APPPATH', $application_folder.'/');
+	}
+	else
+	{
+		if ( ! is_dir(BASEPATH.$application_folder.'/'))
+		{
+			exit("Your application folder path does not appear to be set correctly. Please open the following file and correct this: ".SELF);
+		}
+
+		define('APPPATH', BASEPATH.$application_folder.'/');
+	}
+
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE
  * --------------------------------------------------------------------
  *
  * And away we go...
+<<<<<<< HEAD
  */
 require_once BASEPATH.'core/CodeIgniter.php';
+=======
+ *
+ */
+require_once BASEPATH.'core/CodeIgniter.php';
+
+/* End of file index.php */
+/* Location: ./index.php */
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac

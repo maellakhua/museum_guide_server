@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+=======
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 /*
 | -------------------------------------------------------------------
 | AUTO-LOADER
@@ -22,17 +26,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 | 1. Packages
 | 2. Libraries
+<<<<<<< HEAD
 | 3. Drivers
 | 4. Helper files
 | 5. Custom config files
 | 6. Language files
 | 7. Models
+=======
+| 3. Helper files
+| 4. Custom config files
+| 5. Language files
+| 6. Models
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 |
 */
 
 /*
 | -------------------------------------------------------------------
+<<<<<<< HEAD
 |  Auto-load Packages
+=======
+|  Auto-load Packges
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 | -------------------------------------------------------------------
 | Prototype:
 |
@@ -52,12 +67,16 @@ $autoload['packages'] = array();
 |
 | Prototype:
 |
+<<<<<<< HEAD
 |	$autoload['libraries'] = array('database', 'email', 'session');
 |
 | You can also supply an alternative library name to be assigned
 | in the controller:
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
+=======
+|	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 */
 
 $autoload['libraries'] = array();
@@ -65,6 +84,7 @@ $autoload['libraries'] = array();
 
 /*
 | -------------------------------------------------------------------
+<<<<<<< HEAD
 |  Auto-load Drivers
 | -------------------------------------------------------------------
 | These classes are located in the system/libraries folder or in your
@@ -81,6 +101,8 @@ $autoload['drivers'] = array();
 
 /*
 | -------------------------------------------------------------------
+=======
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 |  Auto-load Helper Files
 | -------------------------------------------------------------------
 | Prototype:
@@ -129,6 +151,7 @@ $autoload['language'] = array();
 | -------------------------------------------------------------------
 | Prototype:
 |
+<<<<<<< HEAD
 |	$autoload['model'] = array('first_model', 'second_model');
 |
 | You can also supply an alternative model name to be assigned
@@ -138,3 +161,14 @@ $autoload['language'] = array();
 */
 
 $autoload['model'] = array();
+=======
+|	$autoload['model'] = array('model1', 'model2');
+|
+*/
+
+$autoload['model'] = array();
+
+
+/* End of file autoload.php */
+/* Location: ./application/config/autoload.php */
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac

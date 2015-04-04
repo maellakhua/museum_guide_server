@@ -16,7 +16,7 @@
 // This can be removed if you use __autoload() in config.php OR use Modular Extensions
 require APPPATH.'/libraries/REST_Controller.php';
 
-class Test3 extends REST_Controller
+class Test2 extends REST_Controller
 {
 	private $constructorParams = array("client_id" => "ZSHVA02GGC5YRCWQIAWPOJULYHPSVC0FNTX5DOCCXRILE4OJ",
 			"client_secret" => "TJVGUYC5U0S0DWEEQEZTR0MGTUXCBJ1NHTIEDB1RLVSBZ2G1");
@@ -45,46 +45,6 @@ class Test3 extends REST_Controller
 		}
 		return $value;
 	}
-	
-    function venues_get()
-    {	
-		
-			$location = "Athens, GR";
-		    
-		    $this->load->library('foursquareapi', $this->constructorParams);
-		
-		// Generate a latitude/longitude pair using Google Maps API
-		list($lat,$lng) = $this->foursquareapi->GeoLocate($location);
-	
-	
-	// Prepare parameters
-	$params = array("ll"=>"$lat,$lng",
-	"radius" => "5000", "categoryId"=>"4bf58dd8d48988d181941735");
-	//$params = array("ll"=>"37.97,23.72");
-	// Perform a request to a public resource
-	$venues = $this->foursquareapi->GetPublic("venues/search",$params);
-		/*$params = array(
-			"near" => "$town",
-		);*/
-		
-		//$venues = $this->foursquareapi->GetPublic("venues/search");
-		
-    	
-        if($venues)
-        {
-			//$data['venues'] = json_decode($venues);
-			//$data['location'] = $location;
-		    //$this->load->view('venues_view', $data);
-			
-            $this->response($venues, 200); // 200 being the HTTP response code
-        }
-
-        else
-        {
-            $this->response(array('error' => 'User could not be found'), 404);
-        }
-    }
-    
     
     function venuedetail($venue_id)
     {	 
@@ -95,14 +55,56 @@ class Test3 extends REST_Controller
 		if($ven)
 		{
 			//$this->response(json_decode($venue), 200); // 200 being the HTTP response code
-			$ret = json_decode($ven);
+			return json_decode($ven);
 			
 		}
     }
     
+    function venuehours($venue_id)
+    {	 
+		//$t=date('d-m-Y');
+		//$cur_day=date("D",strtotime($t));
+		
+	    $this->load->library('foursquareapi', $this->constructorParams);
+    	// Perform a request to a public resource
+		$hours = $this->foursquareapi->GetPublic("venues/" . $venue_id . "/hours");
+		if($hours)
+		{
+			$res = json_decode($hours);
+			if ( count((array)$res->response->hours)) {
+				foreach ($res->response->hours->timeframes as $tf) {
+					if (property_exists($tf, 'includesToday')) {
+						return ($tf->open);
+					}
+				}
+			}
+			if (count((array)$res->response->popular)) {
+				foreach ($res->response->popular->timeframes as $tf) {
+					if (property_exists($tf, 'includesToday')) {
+						return ($tf->open);
+					}
+				}
+			}
+			return array();
+		}
+    }
+    
+    function sort_rating($a, $b)
+	{
+		if ($a['rating'] < $b['rating']) {
+			return true;
+		} elseif ($a['rating'] > $b['rating']) {
+			return false;
+		} else {
+			return 0;
+		}
+	}
+    
 	function venuesexplore_get()
     {	
 		//header('content-type: application/json; charset=utf-8');
+        header('content-type: application/json; charset=utf-8');
+        header("access-control-allow-origin: *");
         
         if (!$this->get('location')) {
 			$location = "Athens, GR";
@@ -121,7 +123,7 @@ class Test3 extends REST_Controller
 		$params = array("ll"=>"$lat,$lng",
 						"radius" => "5000", 
 						"categoryId"=>"4bf58dd8d48988d181941735",
-						"limit"=>"50");
+						"limit"=>"20");
 		
 		// Perform a request to a public resource
 		$venues = $this->foursquareapi->GetPublic("venues/search",$params);
@@ -134,42 +136,21 @@ class Test3 extends REST_Controller
 			$final_v = array();
 			$index = 0;
 			foreach ($myvenues->response->venues as $place) {
-				$q = "venues/";
-				$q .= $place->id;
 				
-				$venue_detail = $this->foursquareapi->GetPublic($q);
-				$venue_d = json_decode($venue_detail, TRUE);
-				//echo $venue_d['response']['venue']['hours']['status'];
-				//$this->response($final_v, 200);
-				//$this->response($venue_detail, 200);
-				//var_dump($venue_d);
-				//json_decode($this->venuedetail($place->id));
-				//var_dump($venue_detail);
-				//echo $venue_detail->response->venue->rating;
+				$venue_d = $this->venuedetail($place->id);
 				$final_v[] = array(
 				"id" => $place->id,
 				"name" => isset($place->name) ? $place->name : "",
 				"distance" => isset($place->location->distance) ? $place->location->distance : "",
-				//"lat" => isset($place->location->lat) ? $place->location->lat : "",
-				//"long" => isset($place->location->lng) ? $place->location->lng : "",
-				//"id" => isset($place->id) ? $place->id : "",
-				//"source" => "Foursquare",
-				"rating" => isset($venue_d['response']['venue']['rating']) ? $venue_d['response']['venue']['rating'] : "",
-				"hours" => isset($venue_d['response']['venue']['hours']['status']) ? $venue_d['response']['venue']['hours']['status'] : "",
+				"rating" => isset($venue_d->response->venue->rating) ? $venue_d->response->venue->rating : 0.0,
+				"hours" => $this->venuehours($place->id),
 				"index" => $index
 				);
 				$index += 1;
 			}
-			//$finaljson .= stripslashes_deep(json_encode($final_v, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)) . '}'; 
-			//$test = json_encode($final_v);
-			//var_dump($final_v);
-			//echo "\n\n\n\n";
-			//$test = str_replace('\"','"',$test);
-			//$finaljson .=  $final_v. '}'; 
-			////$data['venues'] = $finaljson;
-			//$data['location'] = $location;
-			//$this->load->view('venuesexplore_view', $data);
 			
+			usort($final_v, array($this, 'sort_rating'));
+
 			$this->response($final_v, 200); // 200 being the HTTP response code
 		}
 

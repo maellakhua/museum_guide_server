@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
+=======
+<!DOCTYPE html>
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -8,8 +12,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<style type="text/css">
 
+<<<<<<< HEAD
 	::selection { background-color: #E13300; color: white; }
 	::-moz-selection { background-color: #E13300; color: white; }
+=======
+	::selection{ background-color: #E13300; color: white; }
+	::moz-selection{ background-color: #E13300; color: white; }
+	::webkit-selection{ background-color: #E13300; color: white; }
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 	body {
 		background-color: #fff;
@@ -45,11 +55,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		padding: 12px 10px 12px 10px;
 	}
 
+<<<<<<< HEAD
 	#body {
 		margin: 0 15px 0 15px;
 	}
 
 	p.footer {
+=======
+	#body{
+		margin: 0 15px 0 15px;
+	}
+	
+	p.footer{
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 		text-align: right;
 		font-size: 11px;
 		border-top: 1px solid #D0D0D0;
@@ -57,11 +75,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		padding: 0 10px 0 10px;
 		margin: 20px 0 0 0;
 	}
+<<<<<<< HEAD
 
 	#container {
 		margin: 10px;
 		border: 1px solid #D0D0D0;
 		box-shadow: 0 0 8px #D0D0D0;
+=======
+	
+	#container{
+		margin: 10px;
+		border: 1px solid #D0D0D0;
+		-webkit-box-shadow: 0 0 8px #D0D0D0;
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 	}
 	</style>
 </head>
@@ -77,12 +103,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<code>application/views/welcome_message.php</code>
 
 		<p>The corresponding controller for this page is found at:</p>
+<<<<<<< HEAD
 		<code>application/controllers/Welcome.php</code>
+=======
+		<code>application/controllers/welcome.php</code>
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
 	</div>
 
+<<<<<<< HEAD
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+=======
+	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 </div>
 
 </body>

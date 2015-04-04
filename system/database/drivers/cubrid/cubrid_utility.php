@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 /**
  * CodeIgniter
@@ -36,6 +37,24 @@
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+=======
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP 5.1.6 or newer
+ *
+ * @package		CodeIgniter
+ * @author		Esen Sagynov
+ * @copyright	Copyright (c) 2008 - 2011, EllisLab, Inc.
+ * @license		http://codeigniter.com/user_guide/license.html
+ * @link		http://codeigniter.com
+ * @since		Version 1.0
+ * @filesource
+ */
+
+// ------------------------------------------------------------------------
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /**
  * CUBRID Utility Class
@@ -49,6 +68,7 @@ class CI_DB_cubrid_utility extends CI_DB_utility {
 	/**
 	 * List databases
 	 *
+<<<<<<< HEAD
 	 * @return	array
 	 */
 	public function list_databases()
@@ -59,21 +79,99 @@ class CI_DB_cubrid_utility extends CI_DB_utility {
 		}
 
 		return $this->db->data_cache['db_names'] = cubrid_list_dbs($this->db->conn_id);
+=======
+	 * @access	private
+	 * @return	array
+	 */
+	function _list_databases()
+	{
+		// CUBRID does not allow to see the list of all databases on the
+		// server. It is the way its architecture is designed. Every
+		// database is independent and isolated.
+		// For this reason we can return only the name of the currect
+		// connected database.
+		if ($this->conn_id)
+		{
+			return "SELECT '" . $this->database . "'";
+		}
+		else
+		{
+			return FALSE;
+		}
 	}
 
 	// --------------------------------------------------------------------
 
 	/**
+	 * Optimize table query
+	 *
+	 * Generates a platform-specific query so that a table can be optimized
+	 *
+	 * @access	private
+	 * @param	string	the table name
+	 * @return	object
+	 * @link 	http://www.cubrid.org/manual/840/en/Optimize%20Database
+	 */
+	function _optimize_table($table)
+	{
+		// No SQL based support in CUBRID as of version 8.4.0. Database or
+		// table optimization can be performed using CUBRID Manager
+		// database administration tool. See the link above for more info.
+		return FALSE;
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+<<<<<<< HEAD
 	 * CUBRID Export
 	 *
 	 * @param	array	Preferences
 	 * @return	mixed
 	 */
 	protected function _backup($params = array())
+=======
+	 * Repair table query
+	 *
+	 * Generates a platform-specific query so that a table can be repaired
+	 *
+	 * @access	private
+	 * @param	string	the table name
+	 * @return	object
+	 * @link 	http://www.cubrid.org/manual/840/en/Checking%20Database%20Consistency
+	 */
+	function _repair_table($table)
+	{
+		// Not supported in CUBRID as of version 8.4.0. Database or
+		// table consistency can be checked using CUBRID Manager
+		// database administration tool. See the link above for more info.
+		return FALSE;
+	}
+
+	// --------------------------------------------------------------------
+	/**
+	 * CUBRID Export
+	 *
+	 * @access	private
+	 * @param	array	Preferences
+	 * @return	mixed
+	 */
+	function _backup($params = array())
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 	{
 		// No SQL based support in CUBRID as of version 8.4.0. Database or
 		// table backup can be performed using CUBRID Manager
 		// database administration tool.
+<<<<<<< HEAD
 		return $this->db->display_error('db_unsupported_feature');
 	}
 }
+=======
+		return $this->db->display_error('db_unsuported_feature');
+	}
+}
+
+/* End of file cubrid_utility.php */
+/* Location: ./system/database/drivers/cubrid/cubrid_utility.php */
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac

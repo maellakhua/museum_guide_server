@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 /**
  * CodeIgniter
@@ -36,6 +37,24 @@
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+=======
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+/**
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP 5.1.6 or newer
+ *
+ * @package		CodeIgniter
+ * @author		ExpressionEngine Dev Team
+ * @copyright	Copyright (c) 2008 - 2011, EllisLab, Inc.
+ * @license		http://codeigniter.com/user_guide/license.html
+ * @link		http://codeigniter.com
+ * @since		Version 1.0
+ * @filesource
+ */
+
+// ------------------------------------------------------------------------
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 
 /**
  * CodeIgniter Email Helpers
@@ -43,12 +62,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @package		CodeIgniter
  * @subpackage	Helpers
  * @category	Helpers
+<<<<<<< HEAD
  * @author		EllisLab Dev Team
+=======
+ * @author		ExpressionEngine Dev Team
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
  * @link		http://codeigniter.com/user_guide/helpers/email_helper.html
  */
 
 // ------------------------------------------------------------------------
 
+<<<<<<< HEAD
 if ( ! function_exists('valid_email'))
 {
 	/**
@@ -61,11 +85,25 @@ if ( ! function_exists('valid_email'))
 	function valid_email($email)
 	{
 		return (bool) filter_var($email, FILTER_VALIDATE_EMAIL);
+=======
+/**
+ * Validate email address
+ *
+ * @access	public
+ * @return	bool
+ */
+if ( ! function_exists('valid_email'))
+{
+	function valid_email($address)
+	{
+		return ( ! preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $address)) ? FALSE : TRUE;
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 	}
 }
 
 // ------------------------------------------------------------------------
 
+<<<<<<< HEAD
 if ( ! function_exists('send_email'))
 {
 	/**
@@ -78,7 +116,25 @@ if ( ! function_exists('send_email'))
 	 * @return	bool
 	 */
 	function send_email($recipient, $subject, $message)
+=======
+/**
+ * Send an email
+ *
+ * @access	public
+ * @return	bool
+ */
+if ( ! function_exists('send_email'))
+{
+	function send_email($recipient, $subject = 'Test email', $message = 'Hello World')
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
 	{
 		return mail($recipient, $subject, $message);
 	}
 }
+<<<<<<< HEAD
+=======
+
+
+/* End of file email_helper.php */
+/* Location: ./system/helpers/email_helper.php */
+>>>>>>> 4c6d7a26cdf617bfd273b76567440aba515383ac
