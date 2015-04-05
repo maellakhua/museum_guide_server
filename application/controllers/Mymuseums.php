@@ -10,13 +10,23 @@
  * 		radius: radius from current location to search
  * 		limit: limit results (max=50)
  * 		method: distance, rating, weight
+ * 
+ * Output: A JSON list with the following fields:
+ * 		id			: 	Venue ID
+ * 		name		:	Venue name
+ * 		lat			:	Latitude
+ * 		lng			:	Longtitude
+ * 		rating		: 	Rating
+ * 		distance	:	Distance
+ * 		hours		:	Hours open
+ * 		isopen		:	If is open now
  *
  * Uses REST Server Library by Phil Sturgeon
  * 
  * @subpackage	Rest Server
  * @category	Controller
- * @author		Chris Tsolkas, Ioannis Mitropoulos, Panagiotis Germos
- * @link		http://62.217.125.30/~ellakuser/museumapp/
+ * @author		Chris Tsolkas, Tasos Spiliopoulos, Ioannis Mitropoulos, Panagiotis Gemos
+ * @link		http://62.217.125.30/~ellakuser/museumapp/mymuseums/venues/
 */
 
 // This can be removed if you use __autoload() in config.php OR use Modular Extensions
@@ -135,9 +145,11 @@ class Mymuseums extends REST_Controller
     // Basic rest method
 	function venues_get()
     {	
-		//Needed for browser viewing to allow cross site transfers
         header('content-type: application/json; charset=utf-8');
         header("access-control-allow-origin: *");
+        //The above are needed for browser viewing to allow cross site transfers
+        // ATTENTION: Must be the first lines in function, thus the comments
+        // come right after them and NOT BEFORE
         
 		// Load Foursquare library        
 		$this->load->library('foursquareapi', $this->constructorParams);
@@ -218,11 +230,17 @@ class Mymuseums extends REST_Controller
 					if (property_exists($venue_d->response->venue->hours, 'isOpen'))
 						$isopen = $venue_d->response->venue->hours->isOpen ? 1 : 0;
 				}
+				else if (property_exists($venue_d->response->venue, 'popular') ) {
+					if (property_exists($venue_d->response->venue->popular, 'isOpen'))
+						$isopen = $venue_d->response->venue->popular->isOpen ? 1 : 0;
+				}
 				
 				// Add array element with attributes
 				$final_v[] = array(
 					"id" => $place->id,
 					"name" => isset($place->name) ? $place->name : "",
+					"lat" => $lat,
+					"lng" => $lng,
 					"distance" => $distance,
 					"rating" => $rating,
 					"hours" => $this->venuehours($place->id),
