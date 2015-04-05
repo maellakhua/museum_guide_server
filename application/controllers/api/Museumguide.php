@@ -16,7 +16,7 @@
 // This can be removed if you use __autoload() in config.php OR use Modular Extensions
 require APPPATH.'/libraries/REST_Controller.php';
 
-class Test2 extends REST_Controller
+class Museumguide extends REST_Controller
 {
 	private $constructorParams = array("client_id" => "ZSHVA02GGC5YRCWQIAWPOJULYHPSVC0FNTX5DOCCXRILE4OJ",
 			"client_secret" => "TJVGUYC5U0S0DWEEQEZTR0MGTUXCBJ1NHTIEDB1RLVSBZ2G1");
@@ -27,24 +27,7 @@ class Test2 extends REST_Controller
     {
         // Construct our parent class
         parent::__construct();
-        
-        // Configure limits on our controller methods. Ensure
-        // you have created the 'limits' table and enabled 'limits'
-        // within application/config/rest.php
-        //$this->methods['venues_get']['limit'] = 500; //500 requests per hour per user/key
-        //$this->methods['user_post']['limit'] = 100; //100 requests per hour per user/key
-        //$this->methods['user_delete']['limit'] = 50; //50 requests per hour per user/key
     }
-    
-    function stripslashes_deep($value)
-	{
-		if(isset($value)) {
-			$value = is_array($value) ?
-				array_map('stripslashes_deep', $value) :
-				stripslashes($value);
-		}
-		return $value;
-	}
     
     function venuedetail($venue_id)
     {	 
@@ -52,12 +35,10 @@ class Test2 extends REST_Controller
 	    $this->load->library('foursquareapi', $this->constructorParams);
     	// Perform a request to a public resource
 		$ven = $this->foursquareapi->GetPublic("venues/" . $venue_id);
-		if($ven)
-		{
-			//$this->response(json_decode($venue), 200); // 200 being the HTTP response code
+		if($ven) 
 			return json_decode($ven);
-			
-		}
+		//else 
+			//return NULL;
     }
     
     function venuehours($venue_id)
@@ -100,30 +81,35 @@ class Test2 extends REST_Controller
 		}
 	}
     
-	function venuesexplore_get()
+	function venues_get()
     {	
 		//header('content-type: application/json; charset=utf-8');
         header('content-type: application/json; charset=utf-8');
         header("access-control-allow-origin: *");
         
-        if (!$this->get('location')) {
-			$location = "Athens, GR";
+        $this->load->library('foursquareapi', $this->constructorParams);
+        
+        if ($this->get('ll')) {
+			list($lat,$lng) = explode(',', $this->get('ll'));
 		}
-		else {
+		else if ($this->get('location')){
 			$location = $this->get('location');
+			// Generate a latitude/longitude pair using Google Maps API
+			list($lat,$lng) = $this->foursquareapi->GeoLocate($location);
 		}
-		    
-	    $this->load->library('foursquareapi', $this->constructorParams);
 		
-		// Generate a latitude/longitude pair using Google Maps API
-		list($lat,$lng) = $this->foursquareapi->GeoLocate($location);
-	
-	
+        else {
+			$location = "Athens, GR";
+			// Generate a latitude/longitude pair using Google Maps API
+			list($lat,$lng) = $this->foursquareapi->GeoLocate($location);
+		}    
+	    
 		// Prepare parameters
-		$params = array("ll"=>"$lat,$lng",
-						"radius" => "5000", 
-						"categoryId"=>"4bf58dd8d48988d181941735",
-						"limit"=>"20");
+		$params = array("ll"=>"$lat,$lng",   // location
+						"radius" => "5000",  // radius of 5km
+						"categoryId"=>"4bf58dd8d48988d181941735", //Museum
+						"limit"=>"20" // Limit answers
+						);
 		
 		// Perform a request to a public resource
 		$venues = $this->foursquareapi->GetPublic("venues/search",$params);
@@ -132,7 +118,6 @@ class Test2 extends REST_Controller
 		if($venues)
 		{
 			$myvenues = json_decode($venues);
-			$finaljson = '{"results":';
 			$final_v = array();
 			$index = 0;
 			foreach ($myvenues->response->venues as $place) {

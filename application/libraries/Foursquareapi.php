@@ -67,7 +67,7 @@ class Foursquareapi {
             $this->BaseUrl = "{$this->BaseUrl}$version/";
             $this->ClientID = isset($params['client_id']) ? $params['client_id'] : false;
             $this->ClientSecret = isset($params['client_secret']) ? $params['client_secret'] : false;
-            $this->ClientLanguage = isset($params['language']) ? $params['language'] : 'en';
+            $this->ClientLanguage = isset($params['language']) ? $params['language'] : 'el';
             $this->RedirectUri = isset($params['redirect_uri']) ? $params['redirect_uri'] : '';
             $this->Version = isset($params['api_version']) ? $params['api_version'] : DEFAULT_VERSION;
 	}
